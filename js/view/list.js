@@ -24,7 +24,22 @@ var ListItem = Backbone.View.extend({
 
 
 		if ( !! project ) {
-			this.$el.text( this.model.get('description') + project.get('value') + activity.get('value') + date.get('value') );
+			var tmp=_.template("<table><tr><td><%= date_new %></td><td><%= status %></td><td><%= activity_name %></td></tr><tr><td><%= today_date %></td><td></td><td><%= project_name %></td></tr></table>" );
+		     var to_date = new Date();
+
+			var date_new = "End of Day " + date.get('value'),
+			today_date = "Posted on " + to_date.getDate()+'/'+ (to_date.getMonth()+1) +'/'+to_date.getFullYear()
+			project_name = "Project is " + project.get('value'),
+			activity_name = "Activity is " + activity.get('value'),
+			status = this.model.get('description');
+
+			this.complied =   tmp({date_new:date_new,project_name:project_name,activity_name:activity_name,status:status,today_date :today_date });
+
+
+
+
+			// this.$el.text( this.model.get('description') + project.get('value') + activity.get('value') + date.get('value') );
+			this.$el.append(this.complied );
 		} else {
 			this.$el.text( 'nothing found for project_id' + this.model.get('project_id') );
 			console.log( this.model );
