@@ -1,6 +1,6 @@
 var Select = Backbone.View.extend({
     tagName: 'select',
-    className:'dropdown,form-control',
+    className:'selectpicker,form-control',
 
 
     events: {
@@ -14,7 +14,7 @@ var Select = Backbone.View.extend({
     },
 
     render: function(title) {
-
+        
         this.$el.append('<option value="">' + this.title + '</option>');
         this.data.each(this.renderEl.bind(this));
         return this;

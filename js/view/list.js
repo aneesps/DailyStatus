@@ -26,8 +26,8 @@ var ListItem = Backbone.View.extend({
 			var tmp=_.template("<table class='table-bordered'><tr><td><%= date_new %></td><td><%= status %></td><td><%= activity_name %></td></tr><tr><td><%= today_date %></td><td></td><td><%= project_name %></td></tr></table>" );
 		     var to_date = new Date();
 
-			var date_new = "End of Day " + date.get('value'),
-			today_date = "Posted on " + to_date.getDate()+'/'+ (to_date.getMonth()+1) +'/'+to_date.getFullYear()
+			var date_new = "End of Day: " + date.get('value'),
+			today_date = "Posted on: " + to_date.getDate()+'/'+ (to_date.getMonth()+1) +'/'+to_date.getFullYear()
 			project_name = "Project is " + project.get('value'),
 			activity_name = "Activity is " + activity.get('value'),
 			status = this.model.get('description');
@@ -59,6 +59,7 @@ var List = Backbone.View.extend({
 		this.dates = options.dates;
 
 		this.listenTo( this.collection, 'add', this.render );
+
 	},
 
 	allRender: function() {
@@ -74,13 +75,16 @@ var List = Backbone.View.extend({
 
 			html.push( li.render().el );
 		});
-
+		
+	
 		this.$el.html( html );
+
 	},
 
 	render: function (mod, col, action) {
 
 		if ( ! action ) {
+
 			this.allRender();
 		} else if ( !! action && action.add ) {
 			li = new ListItem({

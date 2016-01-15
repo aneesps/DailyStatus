@@ -1,6 +1,6 @@
 var DailyForm = Backbone.View.extend({
 	tagName:'form',
-    className:'form-inline',
+    className:'form',
 	events:{
 		'submit':'onSubmit'
 	},
@@ -59,9 +59,9 @@ var DailyForm = Backbone.View.extend({
         });
 
         html.push( this.chooseDescription.render().el );
-
+        this.$el.append('<h4>Bursts</h4>');
         this.$el.append( html );
-        this.$el.append( '<button type="submit" class="btn btn-primary,form-control">Submit</button>' );
+        this.$el.append( '<button type="submit" class="btn btn-primary">Submit</button>' );
 
         return this;
 
@@ -78,7 +78,7 @@ var DailyForm = Backbone.View.extend({
 			'activity_id':this.chooseActivity.getValue(),
 			'date_id':this.chooseDate.getValue()
 		});
-		 console.log(this.chooseProject.getValue());
+		 this.$el.find('textarea').val('').focus();
 
 		var stringData = JSON.stringify( this.statusCollection.toJSON() );
 		localStorage.setItem( LS_KEY, stringData );

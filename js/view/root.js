@@ -33,6 +33,7 @@ var Root = Backbone.View.extend({
             dates:dates
         });
         this.$el.append(dailyForm.render().el);
+        this.$el.append('<h4>History</h4>');
         this.$el.append( list.render().el );        
         return this;
     }
