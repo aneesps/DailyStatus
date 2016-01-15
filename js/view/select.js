@@ -1,5 +1,6 @@
 var Select = Backbone.View.extend({
     tagName: 'select',
+    className:'dropdown,form-control',
 
 
     events: {

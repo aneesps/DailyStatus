@@ -1,14 +1,11 @@
 var DailyForm = Backbone.View.extend({
 	tagName:'form',
+    className:'form-inline',
 	events:{
 		'submit':'onSubmit'
 	},
 
-	// initialize: function(){
-	// 	 this.$el.append('<input type="text" placeholder="Enter your status"/><button type="submit">Save</button>');
-	// 	 return this;
-	// },
-	
+
 
 
 	initialize: function(options){
@@ -64,7 +61,7 @@ var DailyForm = Backbone.View.extend({
         html.push( this.chooseDescription.render().el );
 
         this.$el.append( html );
-        this.$el.append( '<button type="submit">Submit</button>' );
+        this.$el.append( '<button type="submit" class="btn btn-primary,form-control">Submit</button>' );
 
         return this;
 

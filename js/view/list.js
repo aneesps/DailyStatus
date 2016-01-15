@@ -1,5 +1,6 @@
 var ListItem = Backbone.View.extend({
 	tagName: 'li',
+	className:'list-group-item',
 
 	initialize: function(options) {
 		this.projects = options.projects;
@@ -15,16 +16,14 @@ var ListItem = Backbone.View.extend({
 		var actvId = parseInt( this.model.get('activity_id') );
 		var activity = this.activities.findWhere({ id: actvId });
 
-		var dateId = parseInt( this.model.get('date_id') );
-		
+		var dateId = parseInt( this.model.get('date_id') );		
 		var date = this.dates.findWhere({ id: dateId });
 
-		// console.log(date);
-	
+		
 
 
 		if ( !! project ) {
-			var tmp=_.template("<table><tr><td><%= date_new %></td><td><%= status %></td><td><%= activity_name %></td></tr><tr><td><%= today_date %></td><td></td><td><%= project_name %></td></tr></table>" );
+			var tmp=_.template("<table class='table-bordered'><tr><td><%= date_new %></td><td><%= status %></td><td><%= activity_name %></td></tr><tr><td><%= today_date %></td><td></td><td><%= project_name %></td></tr></table>" );
 		     var to_date = new Date();
 
 			var date_new = "End of Day " + date.get('value'),
@@ -38,14 +37,12 @@ var ListItem = Backbone.View.extend({
 
 
 
-			// this.$el.text( this.model.get('description') + project.get('value') + activity.get('value') + date.get('value') );
 			this.$el.append(this.complied );
 		} else {
 			this.$el.text( 'nothing found for project_id' + this.model.get('project_id') );
 			console.log( this.model );
 		}
 
-		// this.$el.text( this.model.get('description') + project.get('value') );
 
 		return this;
 	}
@@ -54,6 +51,7 @@ var ListItem = Backbone.View.extend({
 
 var List = Backbone.View.extend({
 	tagName: 'ul',
+	className:'list-group',
 
 	initialize: function (options) {
 		this.projects = options.projects;
@@ -73,6 +71,7 @@ var List = Backbone.View.extend({
 			 activities:this.activities,
 			 dates:this.dates	
 			  });
+
 			html.push( li.render().el );
 		});
 
@@ -90,7 +89,8 @@ var List = Backbone.View.extend({
 			  activities:this.activities,
 			 dates:this.dates	
 			  });
-			this.$el.append( li.render().el );
+
+			this.$el.append(li.render().el );
 		};
 
 		return this;

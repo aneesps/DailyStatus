@@ -1,5 +1,6 @@
 var TextArea = Backbone.View.extend({
 	tagName: 'textarea',
+	className:'form-control',
 
 	initialize: function(options) {
 		this.title = options.settings.title;
