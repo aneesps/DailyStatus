@@ -1,3 +1,9 @@
+// The view of the form to submit Daily Statsu is created using this consctructor.
+// It all push the filled data to collection of status when form is submitted.
+
+
+
+
 var DailyForm = Backbone.View.extend({
 	tagName:'form',
     className:'form',

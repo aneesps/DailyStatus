@@ -1,3 +1,6 @@
+// This view hold the logic where to append the form and list of daily status.
+
+
 var Root = Backbone.View.extend({
     el: '#root',
 

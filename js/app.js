@@ -1,3 +1,10 @@
+// This updates the different collections with their ids and values.
+// These ids are then passed to the collection of various daily status submitted.
+
+
+
+
+
 var projects = new Projects([{
     id: 1,
     value: 'SNT'
@@ -23,25 +30,7 @@ var activities = new Activities([{
     value: 'Testing'
 }]);
 
-// var date=Date();
-
-
-
-
-
-
-
 var date = new Date();
-// date.setDate(date.getDate());
-
-// var dateMsg = date.getDate(date.setDate(date.getDate()))+'/'+ (date.getMonth()+1) +'/'+date.getFullYear();
-
-
-
-
-
-
-
 
 
 var dates = new Dates([{
@@ -73,9 +62,6 @@ var statusCollection = new StatusCollection();
 
 
 statusCollection.add(data);
-
-
-
 
 var root = new Root({
     'dates':dates,

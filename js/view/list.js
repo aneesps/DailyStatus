@@ -1,3 +1,7 @@
+// The view of submitted Daily Status is created a list with the data filled.
+// This logic updates the list when a new daily status is submitted.
+
+
 var ListItem = Backbone.View.extend({
 	tagName: 'li',
 	className:'list-group-item',
@@ -40,7 +44,7 @@ var ListItem = Backbone.View.extend({
 			this.$el.append(this.complied );
 		} else {
 			this.$el.text( 'nothing found for project_id' + this.model.get('project_id') );
-			console.log( this.model );
+			s
 		}
 
 

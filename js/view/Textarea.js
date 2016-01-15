@@ -1,3 +1,5 @@
+// This generates the view of textarea that is required to fill the status in the form to submit Daily Status.
+
 var TextArea = Backbone.View.extend({
 	tagName: 'textarea',
 	
